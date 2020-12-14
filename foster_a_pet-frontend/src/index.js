@@ -82,7 +82,7 @@ function fetchLocations()  {
     //debugger
   }*/
 //responsible for listening for form submission
-  function petFormSubmission(){
+/*   function petFormSubmission(){
     event.preventDefault();
     let name = document.getElementById("name").value 
     let breed = document.getElementById("breed").value
@@ -111,10 +111,10 @@ function fetchLocations()  {
         let p = new Pet(pet.id, pet.name, pet.breed, pet.age, pet.location)
         p.renderPets();
       })
-  }
+  } */
   //pets - delete
 
-  function deletePet(){
+/*   function deletePet(){
     
     let petId = parseInt(event.target.dataset.id)
     
@@ -123,11 +123,11 @@ function fetchLocations()  {
     })
     //debugger
     this.location.reload()
-  }
+  } */
 
   // Location class
 
-  class Location {
+/*   class Location {
     constructor(id, name, phonenumber){
       this.id = id;
       this.name = name;
@@ -138,4 +138,4 @@ function fetchLocations()  {
       let locationsDiv = document.getElementById("locations-container")
       locationsDiv.innerHTML += `<ul> <li> Name: ${this.name} Breed: ${this.phonenumber} </li> </ul> `
       }
-    }
+    } */
