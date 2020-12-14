@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 }
  */
-function fetchLocations()  {
+/* function fetchLocations()  {
   fetch(BACKEND_URL + "/locations")
     .then(resp => resp.json())
     .then(locations => {
@@ -33,7 +33,7 @@ function fetchLocations()  {
         p.renderLocations();
       }
     })
-}
+} */
 
 //classes
 //read-fetch pets index

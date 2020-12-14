@@ -31,11 +31,11 @@ class Pet {
     renderInnerHTML() {
       const { name, breed, age, location } = this.pet;
       this.card.innerHTML = `
-          <h2>${name}</h2>
-         <p>${breed} class="toy-avatar" <p/>
-          <p>${age} Likes </p>
-          <p>${location}</p>
-          <button class="delete">Delete Pet/button>
+          <h2>${this.name}</h2>
+         <p>${this.breed} class="toy-avatar" <p/>
+          <p>${this.age} Likes </p>
+          <p>${this.location.name}</p>
+          <button class="delete-bttn" data-id="${this.id}" onclick="deletePet()" > Delete Pet! </button>
       `;
   }
 
