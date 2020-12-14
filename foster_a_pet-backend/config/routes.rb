@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :locations
-  resources :pets
+  namespace :api do
+    namespace :v1 do
+      resources :toys
+      resources :locations
+    end
+  end
   
   #get '/test', to: 'application#test'
   

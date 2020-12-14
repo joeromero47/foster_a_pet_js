@@ -1,3 +1,5 @@
+const api = new ApiService("http://localhost:3000/api/v1");
+
 document.addEventListener("DOMContentLoaded", () => {
   
   fetchPets();
@@ -5,9 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   createForm();
 })
 
-const BACKEND_URL = "http://localhost:3000";
+// const BACKEND_URL = "http://localhost:3000";
 
-function fetchPets()  {
+/* function fetchPets()  {
   fetch(BACKEND_URL + "/pets")
     .then(resp => resp.json())
     .then(pets => {
@@ -19,7 +21,7 @@ function fetchPets()  {
       }
     })
 }
-
+ */
 function fetchLocations()  {
   fetch(BACKEND_URL + "/locations")
     .then(resp => resp.json())
@@ -35,7 +37,7 @@ function fetchLocations()  {
 
 //classes
 //read-fetch pets index
-class Pet {
+/* class Pet {
   constructor(id, name, breed, age, location){
     this.id = id;
     this.name = name;
@@ -50,13 +52,13 @@ class Pet {
     petsDiv.innerHTML += `<ul> <li> Name: ${this.name} Breed: ${this.breed} Age: ${this.age} Location: ${this.location.name}</li> </ul> 
     <button class="delete-bttn" data-id="${this.id}" onclick="deletePet()" > Delete Pet! </button>`
     }
-  }
+  } */
 
   //create a new pet - create form, add event 
   //listener 
   //once form submitted, make fetch post request
   //do something with returned object
-
+/* 
   function createForm(){
     let petFormDiv = document.getElementById("create-pet-form")
     petFormDiv.innerHTML += 
@@ -78,7 +80,7 @@ class Pet {
     `
     petFormDiv.addEventListener("submit", petFormSubmission)
     //debugger
-}
+  }*/
 //responsible for listening for form submission
   function petFormSubmission(){
     event.preventDefault();
