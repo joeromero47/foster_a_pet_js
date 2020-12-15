@@ -10,17 +10,20 @@ class PetForm {
   }
 
   handleOnSubmit = (event) => {
-      event.preventDefault();
-      const { name, breed, age, location } = event.target;
-      const data = {
+  
+    event.preventDefault();
+    const { name, breed, age, location_id } = event.target;
+    const data = {
           name: name.value,
           breed: breed.value,
           age: age.value,
-          location: location.value,
+          location_id: location_id.value,
 
       };
-      api.createPet(data).then((Pet) => new Pet(pet));
-  };
+      //console.log(data);
+      api.createPet(data).then((pet) => new Pet(pet));  
+
+    };
 
   render() {
       const form = document.createElement("form");
@@ -32,8 +35,9 @@ class PetForm {
 
   renderInnerHTML = () => {
       return `
-      <h3>Create a toy!</h3>
+      <h3>Create a Pet!</h3>
       <input
+          id="name"
           type="text"
           name="name"
           value=""
@@ -42,6 +46,7 @@ class PetForm {
       />
       <br />
       <input
+          id="breed"
           type="text"
           name="breed"
           value=""
@@ -50,6 +55,7 @@ class PetForm {
       />
       <br />
       <input
+          id="age"
           type="text"
           name="age"
           value=""
@@ -57,7 +63,7 @@ class PetForm {
           class="input-text"
       />
       <br />
-      <select id="location-select">
+      <select id="location_id" name="location_id">
         <option value="0">--Please choose an option--</option>
         <option value="1">Animal Foundation</option>
         <option value="2">Lied</option>
@@ -69,6 +75,7 @@ class PetForm {
           name="submit"
           value="Create New Pet"
           class="submit"
+          id="submit"
       />
       `;
   };

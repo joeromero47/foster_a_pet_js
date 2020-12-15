@@ -1,11 +1,17 @@
+let addPet = false;
 const api = new ApiService("http://localhost:3000/api/v1");
 
 document.addEventListener("DOMContentLoaded", () => {
   
-  fetchPets();
-  fetchLocations();
-  createForm();
-})
+  Pet.getAll();
+  Location.getAll();
+  new PetForm();
+  const addBtn = document.querySelector("#new-pet-bttn");
+  const delBtn = document.querySelector("delete-bttn");
+  const petFormContainer = document.querySelector(".container");
+ 
+  delBtn.addEventListener("click", Pet.deletePet());
+});
 
 // const BACKEND_URL = "http://localhost:3000";
 
@@ -14,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(resp => resp.json())
     .then(pets => {
       //doing something with data fetched
-      //console.log(pets)
+        //console.log(pets)
       for (const pet of pets){
         let p = new Pet(pet.id, pet.name, pet.breed, pet.age, pet.locationid)
         p.renderPets();

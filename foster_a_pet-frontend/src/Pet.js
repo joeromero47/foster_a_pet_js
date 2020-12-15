@@ -1,51 +1,57 @@
 class Pet {
-  constructor(id, name, breed, age, location){
-    this.id = id;
-    this.name = name;
-    this.breed = breed;
-    this.age = age;
-    this.location = location
+  static container = document.getElementById("pets-container");
+  
+  constructor(pet){
+    this.pet = pet;
+    this.render();
+    //this.attachEventLister();
+    
   } 
-  //render pet instance method
+ 
   static getAll() {
-    api.getAllPets().then((data) =>
-        data.forEach((pet) => new Pet(pet))
+    api.getAllPets().then((data) => data.forEach((pet) => new Pet(pet))
     );
-}
+    
+    
+  }
+
+   //attachEventListener() {
+    //this.pet.addEventListener("click", this.deletePet());
+  //} 
 
   render() {
-    const pet = document.createElement("div");
-    pet.className = "pet";
-    pet.dataset.id = this.pet.id;
-    this.pet = pet;
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.id = this.pet.id;
+    this.card = card;
     this.renderInnerHTML();
-    this.constructor.container.append(pet);
-}
+    this.constructor.container.append(card);
+    //debugger
+  }
   
- /*  renderPets() {
-    let petsDiv = document.getElementById("pets-container")
-    petsDiv.innerHTML += `<ul> <li> Name: ${this.name} Breed: ${this.breed} Age: ${this.age} Location: ${this.location.name}</li> </ul> 
-    <button class="delete-bttn" data-id="${this.id}" onclick="deletePet()" > Delete Pet! </button>`
-    } */
 
     renderInnerHTML() {
-      const { name, breed, age, location } = this.pet;
-      this.card.innerHTML = `
-          <h2>${this.name}</h2>
-         <p>${this.breed} class="toy-avatar" <p/>
-          <p>${this.age} Likes </p>
-          <p>${this.location.name}</p>
-          <button class="delete-bttn" data-id="${this.id}" onclick="deletePet()" > Delete Pet! </button>
-      `;
-  }
-
-   deletePet() {
-      let petId = parseInt(event.target.dataset.id)
-      
-      fetch(`${BACKEND_URL}/pets/${petId}`, {
-        method: 'DELETE'
-      })
+      const { id, name, breed, age, location_id, location } = this.pet;
+      console.log(this.pet)
       //debugger
-      this.location.reload()
+      this.card.innerHTML = `
+          <h2>Name:${this.pet.name}</h2>
+         <p>Breed: ${this.pet.breed} 
+          Age: ${this.pet.age} 
+          location: ${this.pet.location.name}
+          
+          <button class="delete-bttn" id="delete" value="delete" data-id="${this.pet.id}" > Delete Pet! </button>
+      `;
+      }
+    
+      static deletePet(){
+        let petId = parseInt(event.target.dataset.id);
+        
+        fetch(`${BACKEND_URL}/pets/${petId}`, {
+          method: 'DELETE'
+        })
+        //debugger
+        this.location.reload()
+      }
     }
-  }
+
