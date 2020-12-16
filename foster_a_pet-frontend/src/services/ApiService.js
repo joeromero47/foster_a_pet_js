@@ -8,6 +8,14 @@ class ApiService {
 
   getAllLocations = () => fetch(`${this.baseURL}/locations`).then((res) => res.json());
 
+  deletePet = (data) => {
+      const config = {
+        method: 'DELETE',
+    }
+    fetch(`${this.baseURL}/pets/${data}`, config)
+  }
+
+        
   createPet = (data) => {
     const config = {
         method: "POST",

@@ -6,11 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   Pet.getAll();
   Location.getAll();
   new PetForm();
-  const addBtn = document.querySelector("#new-pet-bttn");
-  const delBtn = document.querySelector("delete-bttn");
-  const petFormContainer = document.querySelector(".container");
+  const delBtn = document.getElementsByClassName("delete-bttn");
  
-  delBtn.addEventListener("click", Pet.deletePet());
+ /*  delBtn.addEventListener("click", Pet.deletePet(this)); */
 });
 
 // const BACKEND_URL = "http://localhost:3000";
