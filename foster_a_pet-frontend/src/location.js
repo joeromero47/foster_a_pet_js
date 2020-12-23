@@ -9,7 +9,7 @@ class Location {
     api.getAllLocations().then((data) =>
         data.forEach((location) => new Location(location))
     );
-    debugger
+    
 }
 
   render(){
@@ -19,7 +19,7 @@ class Location {
     this.agency = agency;
     this.renderInnerHtml();
     this.constructor.container.append(agency);
-    debugger
+    
   }
 
   renderInnerHtml() {

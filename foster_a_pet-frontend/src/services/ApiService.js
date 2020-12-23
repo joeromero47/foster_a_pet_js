@@ -12,7 +12,8 @@ class ApiService {
       const config = {
         method: 'DELETE',
     }
-    fetch(`${this.baseURL}/pets/${data}`, config)
+    fetch(`${this.baseURL}/pets/${data}`, config);
+    
   }
 
         
@@ -26,8 +27,18 @@ class ApiService {
         body: JSON.stringify(data),
     };
     return fetch(`${this.baseURL}/pets`, config).then((res) => res.json());
+  }
 
-    
+    createLocation = (data) => {
+      const config = {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+          },
+          body: JSON.stringify(data),
+      };
+      return fetch(`${this.baseURL}/locations`, config).then((res) => res.json());
     
     
 };

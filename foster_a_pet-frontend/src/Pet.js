@@ -4,7 +4,7 @@ class Pet {
   constructor(pet){
     this.pet = pet;
     this.render();
-    //this.attachEventLister();
+
     
   } 
  
@@ -15,10 +15,7 @@ class Pet {
     
   }
 
-   //attachEventListener() {
-    //this.pet.addEventListener("click", this.deletePet());
-  //} 
-
+ 
   render() {
     const card = document.createElement("div");
     card.className = "card";
