@@ -1,7 +1,23 @@
-#deletePetButton:hover {
-  background-color: lightblue;
+
+
+body{ background-color: lightblue;}
+
+.card:hover{ 
+  background-color: blueviolet;
 }
 
+.card{
+  border-style: ridge;
+  border-color: purple;
+}
+.delete-bttn:hover {
+  background-color: red;
+}
+
+.add-dog{
+  border-style: double;
+  border-color: purple
+}
 #create-pet-form:hover {
   background-color: lightblue;
 }

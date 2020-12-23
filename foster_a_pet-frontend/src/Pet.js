@@ -46,7 +46,6 @@ class Pet {
       static deletePet(){
         let petId = parseInt(event.target.dataset.id);
         api.deletePet(petId);
-        console.log(this)
 
         location.reload();
       }
