@@ -20,6 +20,7 @@ class Pet {
     const card = document.createElement("div");
     card.className = "card";
     card.dataset.id = this.pet.id;
+    card.id = this.pet.id;
     this.card = card;
     this.renderInnerHTML();
     this.constructor.container.append(card);
@@ -43,8 +44,12 @@ class Pet {
       static deletePet(){
         let petId = parseInt(event.target.dataset.id);
         api.deletePet(petId);
+        
+        
+        let adoptedPet = document.getElementById(petId);
+        adoptedPet.remove();
 
-        location.reload();
+        //location.reload();
       }
     }
 
