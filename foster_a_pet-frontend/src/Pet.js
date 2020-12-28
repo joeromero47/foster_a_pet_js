@@ -4,8 +4,6 @@ class Pet {
   constructor(pet){
     this.pet = pet;
     this.render();
-
-    
   } 
  
   static getAll() {
@@ -27,10 +25,16 @@ class Pet {
     //debugger
   }
   
+  /* empty() { 
+    document.getElementById('name').value=''; 
+    document.getElementById('breed').value=''; 
+    document.getElementById('age').value=''; 
+    }  */
 
     renderInnerHTML() {
       const { id, name, breed, age, location_id, location } = this.pet;
       //debugger
+
       this.card.innerHTML = `
           <h2>Name:${this.pet.name}</h2>
          <p>Breed: ${this.pet.breed} 
@@ -40,6 +44,7 @@ class Pet {
           <button class="delete-bttn" id="delete" value="delete" data-id="${this.pet.id}" onclick="Pet.deletePet(this)" > Delete Pet! </button>
       `;
       }
+      
     
       static deletePet(){
         let petId = parseInt(event.target.dataset.id);

@@ -1,8 +1,12 @@
 class PetForm {
   static container = document.querySelector(".container");
+  
+
   constructor() {
       this.render();
       this.attachEventLister();
+
+      
   }
 
   attachEventLister() {
@@ -21,7 +25,10 @@ class PetForm {
 
       };
       //console.log(data);
+      debugger
       api.createPet(data).then((pet) => new Pet(pet));  
+      //debugger
+      document.forms[0].reset();
 
     };
 
@@ -31,7 +38,9 @@ class PetForm {
       form.innerHTML = this.renderInnerHTML();
       this.form = form;
       this.constructor.container.append(form);
+   
   }
+
 
   renderInnerHTML = () => {
       return `
@@ -64,10 +73,8 @@ class PetForm {
       />
       <br />
       <select id="location_id" name="location_id">
-        <option value="0">--Please choose an option--</option>
-        <option value="1">Animal Foundation</option>
-        <option value="2">Lied</option>
-        <option value="3">Henderson Animal Shelter</option>
+        <option selected>Location</option>
+        
       </select>
       <br />
       <input
@@ -76,8 +83,12 @@ class PetForm {
           value="Create New Pet"
           class="submit"
           id="submit"
+          
       />
       `;
+      
   };
+
 }
+
 

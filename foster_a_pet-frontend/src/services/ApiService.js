@@ -39,6 +39,7 @@ class ApiService {
           body: JSON.stringify(data),
       };
       return fetch(`${this.baseURL}/locations`, config).then((res) => res.json());
+      
     
     
 };

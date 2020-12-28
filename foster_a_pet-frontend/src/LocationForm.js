@@ -3,13 +3,22 @@ class LocationForm {
   constructor() {
       this.render();
       this.attachEventLister();
+      //this.addOption();
   }
 
   attachEventLister() {
       this.form.addEventListener("submit", this.handleOnSubmit);
-      
   }
-
+/*   addOption() {
+    debugger;
+    const select = document.getElementsByName("location_id");
+  
+      
+    select.insertAdjacentHTML('beforeend', `
+  <option value="${this.location.id}">${this.location.name}</option>
+`);
+     */
+  
   handleOnSubmit = (event) => {
     event.preventDefault();
     const { name, phonenumber } = event.target;
@@ -19,7 +28,14 @@ class LocationForm {
 
       };
       //console.log(data);
+      
       api.createLocation(data).then((location) => new Location(location));  
+      
+      //debugger
+
+      document.forms[1].reset();
+      
+     
 
     };
 
@@ -57,7 +73,7 @@ class LocationForm {
           type="submit"
           name="submit"
           value="Create New Location"
-          class="submit"
+          class="lsubmit"
           id="submit"
       />
       `;

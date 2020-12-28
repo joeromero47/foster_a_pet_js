@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Location.getAll();
   new PetForm();
   new LocationForm();
+  
  
  /*  delBtn.addEventListener("click", Pet.deletePet(this)); */
 });
